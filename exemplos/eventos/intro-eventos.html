@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introdução a eventos</title>
+    <style>
+      div {
+        margin-bottom: 5px;
+      }
+
+      .texto-vermelho {
+        color: red;
+      }
+
+      .texto-preto {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulário de cadastramento</h1>
+    <p id="preencha">
+      Preencha esse formulário com seus <strong>dados pessoais</strong>.
+    </p>
+    <form>
+      <div>
+        <label>Nome completo:</label>
+        <input type="text" name="nome" id="nome" />
+      </div>
+      <div>
+        <label>E-mail:</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div>
+        <label>Matrícula:</label>
+        <input type="text" name="matricula" id="matricula" />
+      </div>
+      <div>
+        <button type="button" onclick="tratarClique()">Mostrar dados!</button>
+      </div>
+    </form>
+    <h2>Dados que foram digitados:</h2>
+    <p></p>
+    <script src="utils.js"></script>
+  </body>
+</html>
