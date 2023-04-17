@@ -38,11 +38,38 @@
         <input type="text" name="matricula" id="matricula" />
       </div>
       <div>
-        <button type="button" onclick="tratarClique()">Mostrar dados!</button>
+        <label>Qual a modalidade do seu curso?</label>
+        <p>
+          <input
+            id="modalidade_graduacao"
+            type="radio"
+            name="modalidade_curso"
+            value="graduacao"
+          /><label for="modalidade_graduacao">Graduação</label>
+        </p>
+        <p>
+          <input
+            type="radio"
+            id="mod_tecnico"
+            name="modalidade_curso"
+            value="tecnico"
+          /><label for="mod_tecnico">Técnico integrado</label>
+        </p>
+        <p>
+          <input
+            type="radio"
+            id="mod_subsequente"
+            name="modalidade_curso"
+            value="subsequente"
+          /><label for="mod_subsequente">Subsequente</label>
+        </p>
+      </div>
+      <div>
+        <button type="button">Mostrar dados!</button>
       </div>
     </form>
     <h2>Dados que foram digitados:</h2>
-    <p></p>
+    <p id="resposta"></p>
     <script src="utils.js"></script>
   </body>
 </html>
