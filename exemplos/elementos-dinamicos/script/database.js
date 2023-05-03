@@ -2,7 +2,7 @@ let cursos = [
   {
     id: 1,
     nome: 'Sistemas para Internet',
-    ch: '2800h',
+    ch: '3400h',
     instituicao: 'IFPB',
     tipoCurso: 'Tecnólogo',
     imagem: 'none',

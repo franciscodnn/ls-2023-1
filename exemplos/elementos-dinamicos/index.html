@@ -33,23 +33,35 @@
 
         padding: 20px;
       }
+
+      .circular {
+        padding: 0 10px;
+        font-size: 28px;
+        border-radius: 50%;
+        border: 1px solid #bbb;
+      }
     </style>
   </head>
   <body>
     <h1>Cursos de Graduação</h1>
     <hr />
     <nav>
-      <button type="button" id="btn-novo-curso" onclick="abrirFormulario()">
-        Novo curso!
+      <button
+        type="button"
+        id="btn-novo-curso"
+        class="circular"
+        onclick="abrirFormulario()"
+      >
+        +
       </button>
-      <button type="button" onclick="abrirFormRemocao();">Remover</button>
+      <!-- <button type="button" onclick="abrirFormRemocao();">Remover</button> -->
     </nav>
     <hr />
     <main id="cursos"></main>
 
     <section id="modal-cursos">
       <div id="form-cursos">
-        <h2>Formulário do curso</h2>
+        <h2>Novo curso</h2>
         <form>
           <p>Curso: <input type="text" name="curso" /></p>
           <p>Carga Horária: <input type="text" name="ch" /></p>
@@ -58,19 +70,6 @@
           <p>Imagem: <input type="text" name="imagem" /></p>
           <p>
             <button type="button" onclick="salvarCurso();">Salvar</button>
-            <button type="reset">Limpar</button>
-          </p>
-        </form>
-      </div>
-    </section>
-
-    <section id="remover-curso">
-      <div id="form-remocao-curso">
-        <h2>Formulário de remoção do curso</h2>
-        <form>
-          <p>ID do curso: <input type="text" name="id" /></p>
-          <p>
-            <button type="button" onclick="removerCurso();">Remover</button>
             <button type="reset">Limpar</button>
           </p>
         </form>
