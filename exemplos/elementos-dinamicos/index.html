@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Cursos</title>
+    <style>
+      span {
+        font-style: italic;
+      }
+
+      #modal-cursos,
+      #remover-curso {
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.3);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #form-cursos,
+      #form-remocao-curso {
+        width: 80%;
+        margin: 4px auto;
+
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid black;
+
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cursos de Graduação</h1>
+    <hr />
+    <nav>
+      <button type="button" id="btn-novo-curso" onclick="abrirFormulario()">
+        Novo curso!
+      </button>
+      <button type="button" onclick="abrirFormRemocao();">Remover</button>
+    </nav>
+    <hr />
+    <main id="cursos"></main>
+
+    <section id="modal-cursos">
+      <div id="form-cursos">
+        <h2>Formulário do curso</h2>
+        <form>
+          <p>Curso: <input type="text" name="curso" /></p>
+          <p>Carga Horária: <input type="text" name="ch" /></p>
+          <p>Instituição: <input type="text" name="instituicao" /></p>
+          <p>Tipo do curso: <input type="text" name="tipoCurso" /></p>
+          <p>Imagem: <input type="text" name="imagem" /></p>
+          <p>
+            <button type="button" onclick="salvarCurso();">Salvar</button>
+            <button type="reset">Limpar</button>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section id="remover-curso">
+      <div id="form-remocao-curso">
+        <h2>Formulário de remoção do curso</h2>
+        <form>
+          <p>ID do curso: <input type="text" name="id" /></p>
+          <p>
+            <button type="button" onclick="removerCurso();">Remover</button>
+            <button type="reset">Limpar</button>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <script src="script/app.js" type="module"></script>
+  </body>
+</html>
