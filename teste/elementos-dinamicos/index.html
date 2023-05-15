@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Cursos</title>
+    <style>
+      span {
+        font-style: italic;
+      }
+
+      #modal-cursos,
+      #remover-curso {
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.3);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #form-cursos,
+      #form-remocao-curso {
+        width: 80%;
+        margin: 4px auto;
+
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid black;
+
+        padding: 20px;
+      }
+
+      .circular {
+        padding: 0 10px;
+        font-size: 28px;
+        border-radius: 50%;
+        border: 1px solid #bbb;
+      }
+
+      #cursos {
+        display: grid;
+        width: 800px;
+
+        grid-template-areas: 'item1 item2 item3';
+        grid-template-columns: 200px 200px;
+        grid-auto-columns: 300px;
+        grid-auto-rows: 400px;
+
+        place-items: start stretch;
+        place-content: center center;
+        /* grid-template: 300px 300px / 300px 300px; */
+        /* grid-template-areas: 
+          'item1 item1'
+          'item2 item3'
+          'item4 item4'; */
+        
+        gap: 10px;
+        /* justify-content: space-evenly; */
+
+        margin: auto;
+      }
+
+      #cursos section {
+        border-radius: 5px;
+
+        background-color: #bbb;
+
+        padding: 5px 10px;
+      }
+
+      #cursos section:first-child {
+        grid-area: item1;
+      }
+
+      #cursos section:nth-child(2) {
+        grid-area: item2;
+      }
+      #cursos section:nth-child(3) {
+        grid-area: item3;
+      }
+      /* #cursos section:nth-child(4) {
+        grid-area: item4;
+      } */
+
+      header {
+        display: flex;
+        width: 800px;
+
+        flex-direction: column;
+
+        align-items: center;
+        margin: auto;
+        /* outline: 1px solid black; */
+      }
+
+      header nav {
+        align-self: flex-end;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Cursos de Graduação</h1>
+      <hr />
+      <nav>
+        <button
+          type="button"
+          id="btn-novo-curso"
+          class="circular"
+          onclick="abrirFormulario()"
+        >
+          +
+        </button>
+        <!-- <button type="button" onclick="abrirFormRemocao();">Remover</button> -->
+      </nav>
+    </header>
+
+    <main id="cursos">
+      <section>
+        <p>Curso 1</p>
+        <p>Curso: <span>teste</span></p>
+        <p>Carga horária: <span>teste</span></p>
+        <p>Instituição: <span>teste</span></p>
+        <p>Tipo do curso: <span>teste</span></p>
+        <p>teste</p>
+        <p><button type="button" class="circular" onclick="confirmarRemocao(${curso.id});">-</button></p>
+      </section>
+
+      <section>
+        <p>Curso 2</p>
+        <p>Curso: <span>teste</span></p>
+        <p>Carga horária: <span>teste</span></p>
+        <p>Instituição: <span>teste</span></p>
+        <p>Tipo do curso: <span>teste</span></p>
+        <p>teste</p>
+        <p><button type="button" class="circular" onclick="confirmarRemocao(${curso.id});">-</button></p>
+      </section>
+    </main>
+
+    <section id="modal-cursos">
+      <div id="form-cursos">
+        <h2>Novo curso</h2>
+        <form>
+          <p>Curso: <input type="text" name="curso" /></p>
+          <p>Carga Horária: <input type="text" name="ch" /></p>
+          <p>Instituição: <input type="text" name="instituicao" /></p>
+          <p>Tipo do curso: <input type="text" name="tipoCurso" /></p>
+          <p>Imagem: <input type="text" name="imagem" /></p>
+          <p>
+            <button type="button" onclick="salvarCurso();">Salvar</button>
+            <button type="reset">Limpar</button>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <script src="script/app.js" type="module"></script>
+  </body>
+</html>
