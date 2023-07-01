@@ -1,10 +1,13 @@
+'use client';
+
 import InvestimentCard from '@/components/InvestimentCard';
 import InvestimentModalForm from '@/components/InvestimentModalForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 export default function Home() {
-  const investiments = [
+  const initialInvestiments = [
     {
       id: 1,
       name: 'Tesouro IPCA+ 2035',
@@ -22,15 +25,17 @@ export default function Home() {
     },
   ];
 
+  const [investiments, setInvestiments] = useState(initialInvestiments);
+
   return (
     <div className='container mx-auto lg:max-w-screen-lg'>
       <h1 className='text-center text-2xl my-12 font-bold'>Investimentos</h1>
-      <InvestimentModalForm />
+      <InvestimentModalForm investiments={investiments} setInvestiments={setInvestiments} />
       <div className='investiments grid grid-cols-3 gap-3'>
-        {investiments.map((investiment) => {
+        {investiments.map((investiment, index) => {
           return (
             <InvestimentCard
-              key={investiment.id}
+              key={index}
               investiment={investiment}
               name={investiment.name}
               value={investiment.value}

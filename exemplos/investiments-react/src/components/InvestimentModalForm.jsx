@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function InvestimentModalForm() {
+function InvestimentModalForm({ investiments, setInvestiments }) {
   const [show, setShow] = useState(false);
   const [investiment, setInvestiment] = useState({
     nameInvestiment: '',
@@ -34,6 +34,21 @@ function InvestimentModalForm() {
     console.log(investiment);
 
     // setInvestiment(event.target.value);
+  }
+
+  function handleSave() {
+    const newInvestiment = {
+      id: investiments.length + 1,
+      name: investiment.nameInvestiment,
+      value: investiment.valueInvestiment
+    };
+
+    setInvestiments( [
+      ...investiments,
+      newInvestiment
+    ]);
+
+    handleClose();
   }
 
   function handleTypedNameInvestiment(event) {
@@ -89,7 +104,7 @@ function InvestimentModalForm() {
           <Button variant='secondary' onClick={handleClose}>
             Fechar
           </Button>
-          <Button variant='primary'>Salvar</Button>
+          <Button variant='primary' onClick={ handleSave }>Salvar</Button>
         </Modal.Footer>
       </Modal>
     </>
